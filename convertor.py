@@ -22,19 +22,18 @@ class Human:
 
     @staticmethod
     def convert_to_xml():
-        human = Human("John", 15, "man", 2003)
+        human = Human("John", 15, "male", 2003)
         xml_from_class = xml_marshaller.dumps(vars(human))
         xml_data = xml_marshaller.loads(xml_from_class)
         xml = dicttoxml(xml_data, attr_type=False)
-        xml_decode = xml.decode()
-        xml_format = parseString(xml_decode).toprettyxml()
+        xml_format = parseString(xml).toprettyxml()
         xml_file = open("human.xml", "w")
         xml_file.write(xml_format)
         xml_file.close()
 
 
 parser = ArgumentParser(description="Converter")
-parser.add_argument('--convert', help='Converts to json or xml', default='jsontocli')
+parser.add_argument('--convert', help='Converts to json or xml', default='xmltocli')
 arguments = parser.parse_args()
 
 if arguments.convert == 'jsontocli':
