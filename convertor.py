@@ -5,7 +5,6 @@ from dicttoxml import dicttoxml
 from xml_marshaller import xml_marshaller
 
 
-
 class Human:
     def __init__(self, name: str, age: int, gender: str, birth_year: int):
         self.name = name
